@@ -19,7 +19,7 @@ function renderApp(res, store, assets, renderProps) {
 
   const htmlStream = renderToStaticMarkup(
     <Html
-      title="Super Future"
+      title="HMR | SSR | FTW"
       store={store}
       assets={assets}
       renderProps={renderProps}
