@@ -1,15 +1,14 @@
 import React from 'react';
-import {createStore} from 'redux';
-// import {push} from 'react-router-redux';
+import {push} from 'react-router-redux';
 import {renderToStaticMarkup} from 'react-dom-stream/server';
 
 import Html from './Html';
-import makeReducer from '../universal/redux/makeReducer';
+import createStore from '../universal/redux/createStore';
 
 function renderApp(res, store, assets, renderProps) {
   const location = renderProps && renderProps.location && renderProps.location.pathname || '/';
   // Needed so some components can render based on location
-  // store.dispatch(push(location));
+  store.dispatch(push(location));
   const htmlStream = renderToStaticMarkup(
     <Html
       title="Super Future"
@@ -26,7 +25,8 @@ function renderApp(res, store, assets, renderProps) {
 }
 
 export const renderPage = function (req, res) {
-
+  const store = createStore( );
+  renderApp(res, store);
 };
 
 export const renderDevPage = function (req, res) {
