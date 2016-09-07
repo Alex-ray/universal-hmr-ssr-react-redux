@@ -16,3 +16,8 @@ if (PROD) {
 } else if (!PROD) {
   app.get('*', renderDevPage);
 }
+
+
+app.listen(3000, function () {
+  console.log('>>>> RUNNING ON localhost:3000');
+});
