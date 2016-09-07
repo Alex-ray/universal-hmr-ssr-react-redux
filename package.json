@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev" : "NODE_ENV=development node ./src/server/server.babel.js",
+    "prod": "NODE_ENV=production node ./src/server/server.babel.js",
   },
   "author": "",
   "license": "ISC"
