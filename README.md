@@ -24,8 +24,11 @@ Renders Pages on the initial for fast page loads and search engine optimization
 ### Why?
 
 Incredibly Productive
+
 Extremely Flexible
+
 Blazing Fast
+
 ... And its just plain cool 😎
 
 ### How?
