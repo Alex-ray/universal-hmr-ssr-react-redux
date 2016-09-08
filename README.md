@@ -37,8 +37,10 @@ Blazing Fast
 
 The Basic setup goes like this...
 
-An express server to handle requests, render the page and handle all our file requests.
+An express server handles requests, renders the webpage and handles all file requests.
 
-Webpack to bundle everything up listen for files changes and hot reload them to the client.
+Webpack is used to bundle everything up, listen for files changes and hot reload them into the client.
+
+React Router is used match the requested url and is then rendered with the redux store on the server using the `react-dom-stream` `renderToStaticMarkup` method.
 
 We will be using React, Redux and React Router to match url requests, and render the state to html that we can then send back to the client.
