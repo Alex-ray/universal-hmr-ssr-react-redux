@@ -22,13 +22,14 @@
   font-size: 1.5em;
   text-align: center;
   color: #E4E7EB;
-  background-color: #63A8D1;
-  border: solid 7px #529ECC;
+  background-color: #F48F94;
+  border: solid 7px #F27D83;
   border-radius: 100px;
   text-decoration: none;
   margin-top: 50px;
+
 }
 
 .button:hover {
-  border-color: #63A8D1;
+  border-color: #F48F94;
 }
