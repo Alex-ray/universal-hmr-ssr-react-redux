@@ -1,5 +1,10 @@
 # ⚡ Universal JS, HMR and SSR ⚡
 
+### 🗒 Note:
+
+This is and example app for using Hot Module Reloading and Server Sider rendering with
+Express, React, Redux and React Router.
+
 ### Setup
 `npm install`
 
@@ -37,10 +42,8 @@ Blazing Fast
 
 The Basic setup goes like this...
 
-An express server handles requests, renders the webpage and handles all file requests.
+An express server to handle requests, render the page and handle all our file requests.
 
-Webpack is used to bundle everything up, listen for files changes and hot reload them into the client.
-
-React Router is used match the requested url and is then rendered with the redux store on the server using the `react-dom-stream` `renderToStaticMarkup` method.
+Webpack to bundle everything up listen for files changes and hot reload them to the client.
 
 We will be using React, Redux and React Router to match url requests, and render the state to html that we can then send back to the client.
