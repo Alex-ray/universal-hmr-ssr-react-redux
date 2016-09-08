@@ -3,8 +3,8 @@ import express from 'express';
 import colors  from 'colors';
 
 // Development Libraries
-// import webpack from 'webpack';
-// import devWebpackConfig from '/webpack/webpack.config.dev';
+import webpack from 'webpack';
+import devWebpackConfig from '../../webpack/webpack.config.dev';
 import chokidar from 'chokidar';
 
 import {
@@ -22,16 +22,16 @@ if (PROD) {
 
 // Development settings
 } else if (!PROD) {
-  // const compiler = webpack(devWebpackConfig);
-  //
-  // app.use(require('webpack-dev-middleware')(compiler, {
-  //   noInfo: true,
-  //   publicPath: devWebpackConfig.output.publicPath
-  // }));
-  //
-  // app.use(require('webpack-hot-middleware')(compiler, {
-  //   log: console.log
-  // }));
+  const compiler = webpack(devWebpackConfig);
+
+  app.use(require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
+    publicPath: devWebpackConfig.output.publicPath
+  }));
+
+  app.use(require('webpack-hot-middleware')(compiler, {
+    log: console.log
+  }));
 
   app.get('*', renderDevPage);
 
@@ -54,12 +54,12 @@ if (PROD) {
 
   // Do "hot-reloading" of react stuff on the server
   // Throw away the cached client modules and let them be re-required next time
-  // compiler.plugin('done', function() {
-  //   console.log("Clearing /client/ module cache from server");
-  //   Object.keys(require.cache).forEach(function(id) {
-  //     if (/[\/\\]client[\/\\]/.test(id)) delete require.cache[id];
-  //   });
-  // });
+  compiler.plugin('done', function() {
+    console.log("Clearing /client/ module cache from server");
+    Object.keys(require.cache).forEach(function(id) {
+      if (/[\/\\]client[\/\\]/.test(id) || /[\/\\]universal[\/\\]/.test(id)) delete require.cache[id];
+    });
+  });
 }
 
 const server = http.createServer(app);

@@ -1,18 +1,31 @@
 
 import {
   compose,
-  createStore
+  createStore,
+  applyMiddleware
 } from 'redux';
 
-import {combineReducers} from 'redux-immutablejs';
+import {browserHistory} from 'react-router';
+import {routerMiddleware} from 'react-router-redux';
 import {Map as iMap} from 'immutable';
-import {routing} from './routing';
+import reducer from './reducers';
 
-const currentReducers = { routing };
+export default (initialState) => {
+  const reduxRouterMiddleware = routerMiddleware(browserHistory);
+  const middlewares = [reduxRouterMiddleware];
 
-export default ( ) => {
-  const reducer = combineReducers({...currentReducers});
-  const store   = createStore(reducer, iMap());
+  initialState = initialState || iMap();
+
+  const store   = createStore(reducer, initialState, applyMiddleware(...middlewares));
+
+
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('./reducers', () => {
+      const nextRootReducer = require('./reducers');
+      store.replaceReducer(nextRootReducer);
+    });
+  }
 
   return store;
 };

@@ -8,7 +8,7 @@ import createStore from '../universal/redux/createStore';
 function renderApp(res, store, assets, renderProps) {
   const location = renderProps && renderProps.location && renderProps.location.pathname || '/';
   // Needed so some components can render based on location
-  store.dispatch(push(location));
+  // store.dispatch(push(location));
 
   /**
    * Note: react-dom-strem is calling the PropTypes directly which will cause the code to break in
@@ -32,12 +32,12 @@ function renderApp(res, store, assets, renderProps) {
   htmlStream.on('end', () => res.end());
 }
 
-export const renderPage = function (req, res) {
+export const renderPage = (req, res) => {
   const store = createStore( );
   renderApp(res, store);
 };
 
-export const renderDevPage = function (req, res) {
+export const renderDevPage = (req, res) => {
   const store = createStore( );
   renderApp(res, store);
 };

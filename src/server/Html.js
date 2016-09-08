@@ -44,18 +44,21 @@ class Html extends Component {
       </Provider>
     );
 
+    //  {PROD && <script dangerouslySetInnerHTML={{__html: manifest.text}}/>}
+
+
     return (
      <html>
        <head>
          <meta charSet="utf-8"/>
-         {PROD && <link rel="stylesheet" href="/static/prerender.css" type="text/css"/>}
+         <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
+
          <title>{title}</title>
        </head>
        <body>
          <script dangerouslySetInnerHTML={{__html: initialState}} />
          {PROD ? <div id="root" dangerouslySetInnerHTML={{__html: root}}></div> : <div id="root"></div>}
-         {PROD && <script dangerouslySetInnerHTML={{__html: manifest.text}}/>}
-         {PROD && <script src={vendor.js}/>}
          <script src={PROD ? app.js : '/static/app.js'} />
        </body>
      </html>
