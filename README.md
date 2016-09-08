@@ -44,6 +44,9 @@ The Basic setup goes like this...
 
 An express server to handle requests, render the page and handle all our file requests.
 
+![hmr-ssr](https://cloud.githubusercontent.com/assets/2454928/18360529/39573fe2-75b3-11e6-8a06-75bc2664e98d.gif)
+
+
 Webpack to bundle everything up listen for files changes and hot reload them to the client.
 
 We will be using React, Redux and React Router to match url requests, and render the state to html that we can then send back to the client.
