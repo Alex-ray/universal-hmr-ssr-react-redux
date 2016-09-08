@@ -1,5 +1,15 @@
 # ⚡ Universal JS, HMR and SSR ⚡
 
+### Setup
+`npm install`
+
+For Development (HMR)
+`npm run dev`
+
+For Production (SSR)
+`npm run build && npm run prod`
+
+
 ### What is it?
 
 *Universal JS: -*
