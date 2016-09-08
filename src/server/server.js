@@ -18,6 +18,9 @@ const app = express();
 
 // Production settings
 if (PROD) {
+
+  app.use('/static', express.static('build'));
+
   app.get('*', renderPage);
 
 // Development settings
@@ -57,7 +60,13 @@ if (PROD) {
   compiler.plugin('done', function() {
     console.log("Clearing /client/ module cache from server");
     Object.keys(require.cache).forEach(function(id) {
-      if (/[\/\\]client[\/\\]/.test(id) || /[\/\\]universal[\/\\]/.test(id)) delete require.cache[id];
+      if (/[\/\\]client[\/\\]/.test(id)) {
+        console.log(`${'Clearing'.yellow} ${'/server/'.red+id.split(/[\/\\]client[\/\\]/)[1].red} ${'module cache from server'.yellow}`);
+        delete require.cache[id];
+      } else if (/[\/\\]universal[\/\\]/.test(id)) {
+        console.log(`${'Clearing'.yellow} ${'/server/'.red+id.split(/[\/\\]universal[\/\\]/)[1].red} ${'module cache from server'.yellow}`);
+        delete require.cache[id];
+      }
     });
   });
 }

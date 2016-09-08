@@ -8,6 +8,7 @@ const src  = path.join(root, 'src');
 const clientSrc    = path.join(src, 'client');
 const universalSrc = path.join(src, 'universal');
 
+
 const clientInclude = [clientSrc, universalSrc];
 
 const babelQuery = {

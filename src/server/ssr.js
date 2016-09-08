@@ -1,6 +1,10 @@
 import React from 'react';
 import {push} from 'react-router-redux';
+import {match} from 'react-router';
 import {renderToStaticMarkup} from 'react-dom-stream/server';
+import fs from 'fs';
+import {join, basename} from 'path';
+
 
 import Html from './Html';
 import createStore from '../universal/redux/createStore';
@@ -34,7 +38,32 @@ function renderApp(res, store, assets, renderProps) {
 
 export const renderPage = (req, res) => {
   const store = createStore( );
-  renderApp(res, store);
+
+  const makeRoutes = require('../../build/prerender');
+  const assets     = require('../../build/assets.json');
+
+  assets.manifest.text = fs.readFileSync(
+    join(__dirname, '..', '..', 'build', basename(assets.manifest.js)),
+    'utf-8'
+  );
+
+  const routes = makeRoutes(store);
+
+  match({routes, location: req.url}, (error, redirectLocation, renderProps) => {
+
+    if (error) {
+     res.status(500).send(error.message);
+    } else if (redirectLocation) {
+     res.redirect(redirectLocation.pathname + redirectLocation.search);
+    } else if (renderProps) {
+     renderApp(res, store, assets, renderProps);
+    } else {
+     res.status(404).send('Not found');
+    }
+
+  });
+
+  // renderApp(res, store);
 };
 
 export const renderDevPage = (req, res) => {

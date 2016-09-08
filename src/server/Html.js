@@ -44,7 +44,6 @@ class Html extends Component {
       </Provider>
     );
 
-    //  {PROD && <script dangerouslySetInnerHTML={{__html: manifest.text}}/>}
 
 
     return (
@@ -59,6 +58,7 @@ class Html extends Component {
        <body>
          <script dangerouslySetInnerHTML={{__html: initialState}} />
          {PROD ? <div id="root" dangerouslySetInnerHTML={{__html: root}}></div> : <div id="root"></div>}
+          {PROD && <script dangerouslySetInnerHTML={{__html: manifest.text}}/>}
          <script src={PROD ? app.js : '/static/app.js'} />
        </body>
      </html>
