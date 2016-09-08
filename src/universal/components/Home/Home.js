@@ -24,7 +24,7 @@ class Home extends Component {
 
             <li>
               <b>Server Side Rendering: -</b><br />
-              <p>Renders Pages on the inital for fast page loads and search engine optomization</p>
+              <p>Renders Pages on the initial for fast page loads and search engine optimization</p>
             </li>
           </ul>
         </div>
@@ -34,7 +34,7 @@ class Home extends Component {
           <h2>Why?</h2>
           <ul>
             <li>Incredibly Productive</li>
-            <li>Extremly Flexible</li>
+            <li>Extremely Flexible</li>
             <li>Blazing Fast</li>
             <li>... And its just plain cool 😎</li>
           </ul>
