@@ -51,3 +51,9 @@ Webpack to bundle everything up listen for files changes and hot reload them to 
 We will be using React, Redux and React Router to match url requests, and render the state to html that we can then send back to the client.
 
 ![hmr-ssr](https://cloud.githubusercontent.com/assets/2454928/18360529/39573fe2-75b3-11e6-8a06-75bc2664e98d.gif)
+
+#### Useful Links
+[Ultimate Hot Reloading Example](https://github.com/glenjamin/ultimate-hot-reloading-example)
+[React Redux Universal Hot Example](https://github.com/erikras/react-redux-universal-hot-example)
+[Ducks Modular Redux](https://github.com/erikras/ducks-modular-redux)
+
