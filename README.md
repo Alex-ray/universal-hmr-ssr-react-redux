@@ -2,7 +2,7 @@
 
 ### 🗒 Note:
 
-This is and example app for using Hot Module Reloading and Server Sider rendering with
+This projfect is intended as an _example_ app for using Hot Module Reloading and Server Sider rendering with
 Express, React, Redux and React Router.
 
 > Video walkthrough here: https://www.dropbox.com/s/1vrlqqkridz2jew/zoom_0.mp4
