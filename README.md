@@ -1,5 +1,9 @@
 # ⚡ Universal JS, HMR and SSR ⚡
 
+🚧🚧🚧 Atenttion: This project has been updated and upgraded for React Router 4 and Hot Module Reloading 3 [over here](https://github.com/Alex-ray/universal-hmr-ssr-react-redux)
+
+Use this project if your still using React Router 3 or below.
+
 ### 🗒 Note:
 
 This project is intended as an _example_ app for using Hot Module Reloading and Server Sider rendering with
